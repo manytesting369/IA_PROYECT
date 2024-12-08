@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Búsqueda con ml5.js y Word2Vec</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ml5/0.6.0/ml5.min.js"></script>
+</head>
+<body>
+    <h1>Buscar Palabras Similares</h1>
+    <input type="text" id="searchInput" placeholder="Escribe una palabra...">
+    <button onclick="searchSimilarWords()">Buscar</button>
+    
+    <h2>Resultados:</h2>
+    <ul id="results"></ul>
+
+    <script>
+        let word2vec;
+
+        // Cargar el modelo Word2Vec de ml5.js
+        ml5.word2vec('./dataAll/word2vec_model.model', null)
+            .then(model => {
+                word2vec = model;
+                console.log("Modelo Word2Vec cargado correctamente");
+            })
+            .catch(error => console.error("Error al cargar el modelo Word2Vec:", error));
+
+        // Función para buscar palabras similares
+        function searchSimilarWords() {
+            const query = document.getElementById("searchInput").value;
+            const resultsList = document.getElementById("results");
+            resultsList.innerHTML = "";  // Limpiar resultados previos
+
+            // Verificar si el modelo y la palabra están disponibles
+            if (word2vec && query) {
+                word2vec.nearest(query, 5)  // Encontrar las 5 palabras más similares
+                    .then(results => {
+                        results.forEach(result => {
+                            const listItem = document.createElement("li");
+                            listItem.textContent = `${result.word} (Similitud: ${result.distance.toFixed(2)})`;
+                            resultsList.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Error en la búsqueda:", error);
+                        resultsList.innerHTML = "<li>No se encontraron resultados</li>";
+                    });
+            } else {
+                resultsList.innerHTML = "<li>El modelo aún no se ha cargado o la entrada está vacía</li>";
+            }
+        }
+    </script>
+</body>
+</html>

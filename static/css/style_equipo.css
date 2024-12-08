@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Fondo claro */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40; /* Fondo oscuro del header */
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ffc107; /* Amarillo al pasar el cursor */
+}
+
+/* Teams Section */
+.teams-section {
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.teams-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #343a40; /* Título oscuro */
+    margin-bottom: 20px;
+}
+
+.teams-section .list-group {
+    max-width: 600px; /* Ancho máximo de la lista */
+    margin: 0 auto; /* Centramos la lista */
+    border: 1px solid #ddd; /* Borde ligero */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Evita que elementos sobresalgan */
+}
+
+.teams-section .list-group-item {
+    font-size: 1.2rem;
+    padding: 15px;
+    background-color: #f8f9fa; /* Fondo claro para cada ítem */
+    border: none; /* Sin bordes entre ítems */
+}
+
+.teams-section .list-group-item:nth-child(odd) {
+    background-color: #e9ecef; /* Fondo alternado */
+}
+
+.teams-section .list-group-item:hover {
+    background-color: #d4edda; /* Fondo verde claro al pasar el cursor */
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .teams-section h2 {
+        font-size: 1.5rem;
+    }
+
+    header .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    .teams-section .list-group {
+        width: 90%; /* Más ancho en pantallas pequeñas */
+    }
+}

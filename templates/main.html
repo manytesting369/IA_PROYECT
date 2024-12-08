@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca del Proyecto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="container-header">
+        <div class="header-container">
+            <div class="logo">Recomendador</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/main">Proyectos</a></li>
+                    <li><a href="/equipos">Equipo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="project-description container bg-light p-4 mt-4 rounded">
+            <h2 class="text-center">Acerca del Proyecto</h2>
+            <p class="text-center mt-3">
+                Este proyecto es un **recomendador de películas** desarrollado utilizando técnicas de inteligencia artificial e implementado con **ML5.js**. 
+                Su objetivo es ofrecer recomendaciones personalizadas a los usuarios basadas en sus preferencias, analizando palabras clave 
+                y patrones de similitud en una base de datos de películas. Creado con la finalidad de explorar la integración de modelos de 
+                aprendizaje automático en aplicaciones web, este sistema busca facilitar la elección de películas y mejorar la experiencia del usuario.
+            </p>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
